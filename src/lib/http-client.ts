@@ -2,7 +2,7 @@ import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 
 // Create axios instance with default config
 const httpClient = axios.create({
-    baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api',
+    baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://shellfc-servicer-production.up.railway.app',
     headers: {
         'Content-Type': 'application/json',
     },

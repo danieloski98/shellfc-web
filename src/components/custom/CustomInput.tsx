@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Input, Text } from '@chakra-ui/react';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useFormikContext } from 'formik';
-import { toaster } from "@/components/ui/toaster"
 
 interface CustomInputProps {
     name: string;

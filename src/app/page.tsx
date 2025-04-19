@@ -6,6 +6,8 @@ import { useMutation } from "@tanstack/react-query";
 import CustomInput from "@/components/custom/CustomInput";
 import httpClient from "@/lib/http-client";
 import { useRouter } from "next/navigation";
+import { toaster } from "@/components/ui/toaster"
+
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required('First name is required'),
@@ -36,14 +38,27 @@ export default function Home() {
       return response.data;
     },
     onSuccess: (data) => {
+      toaster.create({
+        title: 'Account Created!',
+        description: 'Your account has been created successfully',
+        type: 'success',
+        closable: true,
+      });
       // Store the token if it's returned from the API
       if (data.token) {
         localStorage.setItem('token', data.token);
       }
       // Redirect to dashboard or home page
-      router.push('/dashboard');
     },
-    onError: (error) => { }
+    onError: (error) => {
+      console.log(error);
+      toaster.create({
+        title: 'Error',
+        description: error?.message,
+        type: 'error',
+        closable: true,
+      });
+    }
   });
 
   const formik = useFormik({
