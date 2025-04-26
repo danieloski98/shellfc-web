@@ -46,7 +46,7 @@ function AdminLoginPage() {
 
                         <Input value={email} onChange={(e) => setEmail(e.target.value)} width="100%" height="55px" borderRadius={'10px'} bg='whitesmoke' px='10px' mt='20px' _placeholder={{ color: 'grey', fontFamily: 'Fira Code', fontWeight: 'normal' }} color="black" placeholder='Enter your email' />
 
-                        <Input value={password} onChange={(e) => setPassword(e.target.value)} width="100%" height="55px" borderRadius={'10px'} bg='whitesmoke' px='10px' mt='1px' _placeholder={{ color: 'grey', fontFamily: 'Fira Code', fontWeight: 'normal' }} color="black" placeholder='Enter your password' />
+                        <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} width="100%" height="55px" borderRadius={'10px'} bg='whitesmoke' px='10px' mt='1px' _placeholder={{ color: 'grey', fontFamily: 'Fira Code', fontWeight: 'normal' }} color="black" placeholder='Enter your password' />
 
                         <Button onClick={() => mutate({ email, password })} width='100%' height={'60px'} borderRadius={'5px'} mt='20px' bg='grey'>
                             {status === 'pending' && (

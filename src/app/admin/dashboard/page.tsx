@@ -1,7 +1,7 @@
 'use client';
 import httpClient from '@/lib/http-client';
 import { IUser } from '@/models/users.model';
-import { Box, Flex, VStack, Text } from '@chakra-ui/react'
+import { Box, Flex, VStack, Text, Spinner } from '@chakra-ui/react'
 import { Table } from "@chakra-ui/react"
 import { useQuery } from '@tanstack/react-query';
 import React from 'react'
@@ -47,7 +47,10 @@ function Dashboard() {
                     </Flex>
 
                     <Box overflowY={'auto'} px='20px' pt='10px' width='full'>
-                        {isLoading && (<></>)}
+                        {isLoading && (<VStack width='full' height='50px' justifyContent={'center'}>
+                            <Spinner />
+                            <Text>Loading members...</Text>
+                        </VStack>)}
                         {!isLoading && data?.data && (
                             <Table.Root size="sm" striped width={'full'}>
                                 <Table.Header>
